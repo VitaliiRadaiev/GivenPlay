@@ -1,6 +1,6 @@
 @@include('plugins/inputmask.min.js')
-@@include('plugins/swiper-bundle.js') 
-@@include('plugins/tippy.js') 
+@@include('plugins/swiper-bundle.js')
+@@include('plugins/tippy.js')
 
 window.addEventListener('load', () => {
 	// quantity
@@ -48,12 +48,13 @@ window.addEventListener('load', () => {
 
 	// sliders
 	@@include('../common/donate-card-slider/donate-card-slider.js')
+	@@include('../common/cards-carousel/cards-carousel.js')
 
 
 	// init tooltip
 	{
 		let tooltipElements = document.querySelectorAll('[data-tooltip]');
-		if(tooltipElements.length) {
+		if (tooltipElements.length) {
 			tooltipElements.forEach(el => {
 				tippy(el, {
 					content: el.dataset.tooltip,
@@ -61,4 +62,26 @@ window.addEventListener('load', () => {
 			})
 		}
 	}
+});
+
+jQuery(document).ready(function ($) {
+
+
+	$('img.img-svg').each(function () {
+		var $img = $(this);
+		var imgClass = $img.attr('class');
+		var imgURL = $img.attr('src');
+		$.get(imgURL, function (data) {
+			var $svg = $(data).find('svg');
+			if (typeof imgClass !== 'undefined') {
+				$svg = $svg.attr('class', imgClass + ' replaced-svg');
+			}
+			$svg = $svg.removeAttr('xmlns:a');
+			if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+				$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+			}
+			$img.replaceWith($svg);
+		}, 'xml');
+	});
+
 });

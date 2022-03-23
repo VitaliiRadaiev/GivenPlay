@@ -1,0 +1,56 @@
+
+.cards-carousel {
+    margin: 0 auto;
+    width: 100%;
+
+    padding: 60px;
+    overflow: hidden;
+
+    &__inner {
+
+    }
+
+    & .swiper {
+        overflow: visible;
+        max-width: 1280px;
+    }
+
+    & .swiper-slide {
+        width: 228px;
+
+        &.swiper-slide-active:not(.card-hover-not) {
+            & svg {
+                transform: translateY(-10%) scale(1.2);
+            }
+
+            & .card-img-bg {
+                opacity: 1;
+            }
+        }
+
+        &.card-hover {
+            & svg {
+                transform: translateY(-10%) scale(1.2);
+            }
+
+            & .card-img-bg {
+                opacity: 1;
+            }
+        }
+        
+        & svg, & img {
+            width: 100%;
+            height: auto;
+            transition: all .3s ease;
+        }
+
+        & .card-svg-img {
+            mix-blend-mode: lighten;
+        }
+
+        & .card-img-bg {
+            opacity: 0;
+            transition: all .3s ease;
+        }
+    }
+}
