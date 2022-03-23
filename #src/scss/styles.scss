@@ -17,6 +17,10 @@ $mainColor: #ff8b00;
 
 @import 'plugins/swiper-bundle.scss'; 
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .elementor-widget-woocommerce-checkout-page {
     & .woocommerce {
         display: flex;

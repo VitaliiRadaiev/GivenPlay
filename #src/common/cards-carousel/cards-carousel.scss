@@ -1,4 +1,3 @@
-
 .cards-carousel {
     margin: 0 auto;
     width: 100%;
@@ -7,7 +6,6 @@
     overflow: hidden;
 
     &__inner {
-
     }
 
     & .swiper {
@@ -16,10 +14,10 @@
     }
 
     & .swiper-slide {
-        width: 228px;
+        width: auto;
 
         &.swiper-slide-active:not(.card-hover-not) {
-            & svg {
+            & .card {
                 transform: translateY(-10%) scale(1.2);
             }
 
@@ -29,7 +27,7 @@
         }
 
         &.card-hover {
-            & svg {
+            & .card {
                 transform: translateY(-10%) scale(1.2);
             }
 
@@ -37,11 +35,12 @@
                 opacity: 1;
             }
         }
-        
-        & svg, & img {
+
+        & svg,
+        & img {
             width: 100%;
             height: auto;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
         }
 
         & .card-svg-img {
@@ -50,7 +49,74 @@
 
         & .card-img-bg {
             opacity: 0;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
         }
     }
+}
+
+.card {
+    width: 228px;
+    height: 267px;
+    position: relative;
+    display: block;
+    font-family: $mainFontFamily;
+    text-decoration: none !important;
+    transition: all .3s ease;
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        & img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__body {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding-top: 159px;
+    }
+
+    &__value {
+        font-weight: 700;
+        font-size: 26.4368px;
+        line-height: 32px;
+        margin-bottom: 2px;
+    }
+
+    &__entries {
+        font-weight: 400;
+        font-size: 14.7474px;
+        line-height: 18px;
+    }
+
+    &__link {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 139px;
+        height: 49px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        transform: translateX(-50%);
+    }
+}
+.img-svg {
 }
