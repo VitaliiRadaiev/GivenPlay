@@ -1477,6 +1477,7 @@ button.swiper-pagination-bullet {
   width: 100%;
   text-align: center;
   color: #fff;
+  mix-blend-mode: lighten;
 }
 
 .donate-card-slider__body .swiper-slide {
