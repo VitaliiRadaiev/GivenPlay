@@ -12,36 +12,38 @@ window.addEventListener('load', () => {
 				let minus = quantity.querySelector('.quantity__btn--minus');
 				let plus = quantity.querySelector('.quantity__btn--plus');
 
-				input.addEventListener('input', (e) => {
-					if (!e.target.value.trim()) return;
+				if (input && minus && plus) {
+					input.addEventListener('input', (e) => {
+						if (!e.target.value.trim()) return;
 
-					Inputmask('9{*}', {
-						clearIncomplete: true,
-						clearMaskOnLostFocus: true,
-					}).mask(input);
+						Inputmask('9{*}', {
+							clearIncomplete: true,
+							clearMaskOnLostFocus: true,
+						}).mask(input);
 
 
-					if (e.target.value < 1) {
-						if (e.target.value < 1 && e.target.value.trim()) {
-							e.target.value = 1;
+						if (e.target.value < 1) {
+							if (e.target.value < 1 && e.target.value.trim()) {
+								e.target.value = 1;
+							}
 						}
-					}
-				})
+					})
 
-				input.addEventListener('blur', (e) => {
-					if (e.target.value < 1) {
-						input.value = 1;
-					}
-				})
+					input.addEventListener('blur', (e) => {
+						if (e.target.value < 1) {
+							input.value = 1;
+						}
+					})
 
-				plus.addEventListener('click', () => {
-					input.value++;
-				})
-				minus.addEventListener('click', () => {
-					if (input.value <= 1) return;
+					plus.addEventListener('click', () => {
+						input.value++;
+					})
+					minus.addEventListener('click', () => {
+						if (input.value <= 1) return;
 
-					input.value--;
-				})
+						input.value--;
+					})
+				}
 			})
 		}
 	}
@@ -49,6 +51,7 @@ window.addEventListener('load', () => {
 	// sliders
 	@@include('../common/donate-card-slider/donate-card-slider.js')
 	@@include('../common/cards-carousel/cards-carousel.js')
+
 
 
 	// init tooltip
@@ -62,6 +65,11 @@ window.addEventListener('load', () => {
 			})
 		}
 	}
+
+	@@include('../common/donat-progress/donat-progress.js')
+	
+	@@include('../common/timer/timer.js')
+
 });
 
 jQuery(document).ready(function ($) {

@@ -1,0 +1,199 @@
+.donat-progress {
+    font-family: $mainFontFamily;
+    max-width: 780px;
+    color: #fff;
+
+    &__title {
+        position: relative;
+        font-family: $mainFontFamily;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 1.22em;
+        color: #5a39ce;
+        padding-left: 0.1em;
+        text-shadow: 0 0 1px 0 #5a39ce;
+        margin-bottom: 21px;
+
+        @media (max-width: $md3+px) {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        & span {
+            position: absolute;
+            z-index: 2;
+            color: #ffffff;
+            top: -0.1em;
+            left: 0;
+            width: 100%;
+            text-shadow: 2px 2px #5a39ce, -2px 2px #5a39ce, 2px -2px #5a39ce, -2px -2px #5a39ce, 2px 2px 5px #5a39ce;
+        }
+    }
+
+    &__body {
+        margin-bottom: 23px;
+        color: #fff;
+    }
+
+    &__row {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &.d-flex {
+            @media (max-width: $md3+px) {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    &__col {
+        flex: 1 1 auto;
+        max-width: 314px;
+        padding-right: 20px;
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 1px;
+    }
+
+    &__current-value {
+        font-weight: 700;
+        font-size: 38.5246px;
+        line-height: 47px;
+        text-shadow: 2px 2px #5a39ce, -2px 2px #5a39ce, 2px -2px #5a39ce, -2px -2px #5a39ce, 2px 2px 5px #5a39ce;
+        margin-bottom: 5px;
+    }
+
+    &__expected-value {
+        font-weight: 400;
+        font-size: 18.0328px;
+        line-height: 22px;
+        color: #fafaf9;
+    }
+
+    &__win-card {
+        position: relative;
+        display: inline-block;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__win-card-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        border-radius: 8px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ab32e4+1,cbaa34+31,43d42b+63,723aff+100 */
+        background: rgb(171, 50, 228);
+        /* Old browsers */
+        background: -moz-linear-gradient(
+            left,
+            rgba(171, 50, 228, 1) 1%,
+            rgba(203, 170, 52, 1) 31%,
+            rgba(67, 212, 43, 1) 63%,
+            rgba(114, 58, 255, 1) 100%
+        );
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(
+            left,
+            rgba(171, 50, 228, 1) 1%,
+            rgba(203, 170, 52, 1) 31%,
+            rgba(67, 212, 43, 1) 63%,
+            rgba(114, 58, 255, 1) 100%
+        );
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+            to right,
+            rgba(171, 50, 228, 1) 1%,
+            rgba(203, 170, 52, 1) 31%,
+            rgba(67, 212, 43, 1) 63%,
+            rgba(114, 58, 255, 1) 100%
+        );
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ab32e4', endColorstr='#723aff', GradientType=1);
+        /* IE6-9 */
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            z-index: 1;
+            border-radius: 8px;
+            background-color: #030338;
+        }
+    }
+
+    &__win-card-inner {
+        position: relative;
+        z-index: 2;
+        padding: 5px 10px;
+    }
+
+    &__win-card-price {
+        display: flex;
+        align-items: flex-end;
+        font-size: 35px;
+
+        & span {
+            font-weight: 700;
+            font-size: 38.52px;
+            line-height: 47px;
+            background: linear-gradient(180deg, #b9893b 0%, #f0cd4f 45.31%, #a58619 81.25%, #fdd444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        & .info-tooltip {
+            margin-left: 9px;
+            margin-bottom: 7px;
+        }
+    }
+
+    &__line {
+        background: #201c26;
+        border-radius: 100px;
+        position: relative;
+        width: 100%;
+        height: 13px;
+        overflow: hidden;
+
+        &.show {
+            & span {
+                width: 100%;
+            }
+        }
+
+        & span {
+            position: absolute;
+            z-index: 2;
+            transition: all 0.6s ease;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #6635bd;
+            border-radius: 100px;
+        }
+    }
+
+    &__timer {
+    }
+}
+
+

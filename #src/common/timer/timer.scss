@@ -1,0 +1,18 @@
+.timer {
+    color: inherit;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 23px;
+    min-width: 160px;
+    display: inline-block;
+
+    & sub {
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-bottom: 0.2em;
+        font-size: 11px;
+        display: inline-block;
+        transform: translateY(-4px);
+        margin-right: 5px;
+    }
+}

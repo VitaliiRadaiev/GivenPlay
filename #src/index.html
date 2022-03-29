@@ -5,14 +5,49 @@
 "title": "New Project"
 })
 
-<body>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
+	.wrap {
+		background-color: #030338;
+		padding: 100px;
+	}
+
+	@media (max-width: 767px) {
+		.wrap {
+			padding: 100px 20px;
+		}
+	}
+
+	.box {
+		height: 100px;
+		width: 100px;
+		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ab32e4+1,cbaa34+31,43d42b+63,723aff+100 */
+		background: rgb(171, 50, 228);
+		/* Old browsers */
+		background: -moz-linear-gradient(left, rgba(171, 50, 228, 1) 1%, rgba(203, 170, 52, 1) 31%, rgba(67, 212, 43, 1) 63%, rgba(114, 58, 255, 1) 100%);
+		/* FF3.6-15 */
+		background: -webkit-linear-gradient(left, rgba(171, 50, 228, 1) 1%, rgba(203, 170, 52, 1) 31%, rgba(67, 212, 43, 1) 63%, rgba(114, 58, 255, 1) 100%);
+		/* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to right, rgba(171, 50, 228, 1) 1%, rgba(203, 170, 52, 1) 31%, rgba(67, 212, 43, 1) 63%, rgba(114, 58, 255, 1) 100%);
+		/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ab32e4', endColorstr='#723aff', GradientType=1);
+		/* IE6-9 */
+
+	}
+</style>
+
+<body>
 	<div class="padding-wrap">
 		@@include('common/donate-card-slider/_donate-card-slider.html')
 	</div>
 
 	<div class="padding-wrap">
 		@@include('common/cards-carousel/_cards-carousel.html')
+	</div>
+
+	<div class="wrap">
+		@@include('common/donat-progress/_donat-progress.html')
 	</div>
 
 </body>

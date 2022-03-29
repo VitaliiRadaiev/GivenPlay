@@ -6,6 +6,17 @@
     height: 53.5em;
     font-family: $mainFontFamily;
 
+    @media (max-width: $md1+px) {
+        font-size: 7px;
+    }
+    @media (max-width: $md2+px) {
+        font-size: 5.4px;
+    }
+
+    @media (max-width: $md3+px) {
+        font-size: 9px;
+    }
+
     @media (max-width: $md4+px) {
         font-size: 6.5px;
     }
@@ -107,7 +118,7 @@
 
     &__link {
         position: absolute;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         left: 50%;

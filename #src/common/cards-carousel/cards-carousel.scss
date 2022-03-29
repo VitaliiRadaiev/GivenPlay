@@ -10,11 +10,11 @@
 
     & .swiper {
         overflow: visible;
-        max-width: 1280px;
     }
 
     & .swiper-slide {
         width: auto;
+        overflow: visible;
 
         &.swiper-slide-active:not(.card-hover-not) {
             & .card {
@@ -58,7 +58,7 @@
     width: 228px;
     height: 267px;
     position: relative;
-    display: block;
+    display: block !important;
     font-family: $mainFontFamily;
     text-decoration: none !important;
     transition: all .3s ease;

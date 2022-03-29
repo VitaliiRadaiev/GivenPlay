@@ -15,9 +15,11 @@ $textColor: #fff;
 $textColorSecondary: #767676;
 $mainColor: #ff8b00;
 
-@import 'plugins/swiper-bundle.scss'; 
+@import "plugins/swiper-bundle.scss";
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -28,9 +30,11 @@ $mainColor: #ff8b00;
     }
 }
 
-.checkout.woocommerce-checkout {
+.checkout.woocommerce-checkout,
+.woocommerce-order {
     margin-left: auto;
     font-family: $mainFontFamily;
+    width: 100%;
 
     @media (min-width: 768px) {
         max-width: 400px;
@@ -94,12 +98,28 @@ $mainColor: #ff8b00;
             padding: 0 !important;
         }
 
+        & .wc_payment_methods {
+            margin-top: -30px !important;
+        }
+
         & .mcc_currency {
+            padding: 0 !important;
+
             & label {
                 font-weight: 400;
                 font-size: 12px;
                 line-height: 1.2em;
                 color: #dedede;
+                padding: 0px 2px 0 6px;
+                position: relative;
+                bottom: -10px;
+                background: #1a062b;
+                z-index: 2;
+                margin-left: 6px;
+
+                & .required {
+                    display: none;
+                }
             }
 
             & select {
@@ -114,11 +134,27 @@ $mainColor: #ff8b00;
                 font-weight: 600;
                 font-size: 15px;
                 line-height: 20px;
+                padding-left: 12px;
+                padding-right: 30px;
+                appearance: none;
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDExIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNS41IDUuNUwxMCAxIiBzdHJva2U9IiNERURFREUiLz4KPC9zdmc+Cg==");
+                background-repeat: no-repeat;
+                background-size: 13px 9.5px;
+                background-position: 97% 50%;
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                }
 
                 & option {
                     color: #000;
                 }
             }
+        }
+
+        & .woocommerce-privacy-policy-text p {
+            margin-top: 0 !important;
         }
     }
 
@@ -158,6 +194,85 @@ $mainColor: #ff8b00;
             );
             box-shadow: 0px 4px 8px #65328d;
             border: 0;
+        }
+    }
+}
+
+// payment section
+.checkout-payment-value {
+    font-family: $mainFontFamily;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 140%;
+    color: #ffffff;
+}
+.checkout-payment-row {
+    margin-bottom: 14px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.checkout-payment-currency {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 8px;
+    border-radius: 4px;
+    height: 52px;
+
+    & legend {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.2em;
+        color: #dedede;
+        padding: 0 8px;
+        margin-left: -4px;
+    }
+
+    & select {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        border-radius: 0px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        height: 100%;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+        padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: -2px;
+
+        & option {
+            color: #000;
+        }
+    }
+}
+
+.coins-list {
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    & > li {
+        list-style: none;
+        width: 26px;
+        flex: 0 0 auto;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        & img {
+            width: 100%;
+            height: auto;
         }
     }
 }
@@ -228,6 +343,10 @@ $mainColor: #ff8b00;
         border: 0px !important;
         outline: none;
     }
+}
+
+.e-checkout__order_review {
+    padding: 20px 20px 25px !important;
 }
 
 .review-order {
@@ -431,6 +550,7 @@ $mainColor: #ff8b00;
         justify-content: center;
         align-items: center;
         padding: 5px;
+        mix-blend-mode: lighten;
 
         & img {
             max-width: 100%;
@@ -519,10 +639,318 @@ $mainColor: #ff8b00;
     }
 }
 
-.padding-wrap {
-    padding: 150px 0;
-    background-image: linear-gradient(30deg,#3242A1 0%,#0420CE 100%);
+.elementor-element-f1e6e36 {
+    & > .elementor-container {
+        & > .elementor-column {
+            & > .elementor-element-populated {
+                padding: 0 !important;
+            }
+        }
+    }
 }
+
+.crypto-title h5 {
+    display: none;
+}
+
+// == Choose a Coin ==
+.mcc.online_payment_instructions.mycryptocheckout {
+    background: transparent !important;
+    padding: 20px 20px 25px !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 4px !important;
+
+    & > h2 {
+        font-family: $mainFontFamily;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        background-color: transparent !important;
+        padding: 0 !important;
+        margin-bottom: 11px;
+    }
+
+    & .mcc_online_pay_box {
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+
+        & .text-danger {
+            font-family: $mainFontFamily;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 20px;
+            color: #ff0000;
+        }
+        & > p {
+            font-size: 0;
+
+            &:first-child {
+                line-height: auto;
+                margin-bottom: 0;
+            }
+
+            & br {
+                display: none;
+            }
+        }
+
+        & p.am {
+            font-family: $mainFontFamily;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 1.4em;
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+
+        & .amount {
+            & .to_input {
+                margin-bottom: 4px;
+                &:before {
+                    content: "Amount" !important;
+                }
+            }
+        }
+
+        & .to {
+            & .to_input {
+                &:before {
+                    content: "Wallet Address" !important;
+                }
+            }
+        }
+
+        & .to_input {
+            display: block;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: "";
+                z-index: 2;
+                font-family: $mainFontFamily;
+                padding: 0 6px;
+                font-weight: 400;
+                font-size: 12px;
+                color: #dedede;
+                pointer-events: none;
+                background-color: #020432;
+                left: 5px;
+                top: -10px;
+            }
+        }
+
+        & input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0 !important;
+            background-color: transparent;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            height: 44px;
+            padding: 10px 50px 10px 14px;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.2em;
+            color: #dedede;
+            width: 100%;
+            max-width: none;
+            background-image: none !important;
+            outline: none !important;
+        }
+
+        & .mcc_woocommerce_clipboard {
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            top: 0 !important;
+            height: 44px !important;
+            width: 46px !important;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMiIGhlaWdodD0iMjMiIHZpZXdCb3g9IjAgMCAyMyAyMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjQyMzcyIDE5LjYzODJDMi43Njc4IDE5Ljk4MjEgMy4yMzQyMSAyMC4xNzU0IDMuNzIwNjYgMjAuMTc1NEgxMy44ODc1QzE0LjM3NCAyMC4xNzU0IDE0Ljg0MDQgMTkuOTgyMSAxNS4xODQ0IDE5LjYzODJMMTUuMjM2NiAxOS41ODYxQzE1LjU4MDUgMTkuMjQyIDE1Ljc3MzcgMTguNzc1NiAxNS43NzM3IDE4LjI4OTFWOC4xMjIzQzE1Ljc3MzcgNy42MzU4NSAxNS41ODA1IDcuMTY5NDQgMTUuMjM2NiA2LjgyNTM2TDE1LjE4NDQgNi43NzMyNEMxNC44NDA0IDYuNDI5MzUgMTQuMzc0IDYuMjM2MDggMTMuODg3NSA2LjIzNjA4SDMuNzIwNjZDMy4yMzQyMSA2LjIzNjA4IDIuNzY3OCA2LjQyOTM0IDIuNDIzNzIgNi43NzMyNEwyLjM3MTYgNi44MjUzNkMyLjAyNzcxIDcuMTY5NDMgMS44MzQ0NCA3LjYzNTg1IDEuODM0NDQgOC4xMjIzVjE4LjI4OTFDMS44MzQ0NCAxOC43NzU2IDIuMDI3NyAxOS4yNDIgMi4zNzE2IDE5LjU4NjFMMi40MjM3MiAxOS42MzgyWk0xNi41MzMgNS41Mjg5NkwxNi40ODA4IDUuNDc2NjdDMTUuNzkzMSA0Ljc4ODg4IDE0Ljg2IDQuNDAyMzQgMTMuODg3MiA0LjQwMjM0SDMuNzIwMzFDMi43NDczNiA0LjQwMjM0IDEuODE0NDEgNC43ODg4NyAxLjEyNjYyIDUuNDc2NjdMMS4wNzQzMiA1LjUyODk2QzAuMzg2NTM1IDYuMjE2NzUgMCA3LjE0OTk0IDAgOC4xMjI2NVYxOC4yODk1QzAgMTkuMjYyMyAwLjM4NjUyMiAyMC4xOTU0IDEuMDc0MzIgMjAuODgzNEwxLjEyNjYyIDIwLjkzNTNDMS44MTQ0MSAyMS42MjMzIDIuNzQ3NDEgMjIuMDA5OCAzLjcyMDMxIDIyLjAwOThIMTMuODg3MkMxNC44NjAxIDIyLjAwOTggMTUuNzkzMSAyMS42MjMzIDE2LjQ4MDggMjAuOTM1M0wxNi41MzMgMjAuODgzNEMxNy4yMjA5IDIwLjE5NTQgMTcuNjA3NSAxOS4yNjIzIDE3LjYwNzUgMTguMjg5NVY4LjEyMjY1QzE3LjYwNzUgNy4xNDk4OSAxNy4yMjA5IDYuMjE2NzUgMTYuNTMzIDUuNTI4OTZaIiBmaWxsPSIjREVERURFIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTcuNjA3NSAxNS43NzM0SDE4LjI4OUMxOC43NzU1IDE1Ljc3MzQgMTkuMjQxOSAxNS41ODAxIDE5LjU4NTkgMTUuMjM2MkwxOS42MzgxIDE1LjE4NDFDMTkuOTgyIDE0Ljg0IDIwLjE3NTIgMTQuMzczNiAyMC4xNzUyIDEzLjg4NzJWMy43MjAzMUMyMC4xNzUyIDMuMjMzODYgMTkuOTgyIDIuNzY3NDUgMTkuNjM4MSAyLjQyMzM3TDE5LjU4NTkgMi4zNzEyNUMxOS4yNDE5IDIuMDI3MzYgMTguNzc1NSAxLjgzNDA5IDE4LjI4OSAxLjgzNDA5SDguMTIyMTZDNy42MzU3MiAxLjgzNDA5IDcuMTY5MzEgMi4wMjczNSA2LjgyNTIzIDIuMzcxMjVMNi43NzMxMSAyLjQyMzM3QzYuNDI5MjIgMi43Njc0NCA2LjIzNTk1IDMuMjMzODYgNi4yMzU5NSAzLjcyMDMxVjQuNDAxODFINC40MDE4NlYzLjcyMDMxQzQuNDAxODYgMi43NDczNiA0Ljc4ODM4IDEuODE0NDEgNS40NzYxOCAxLjEyNjYyTDUuNTI4NDggMS4wNzQzMkM2LjIxNjI2IDAuMzg2NTM1IDcuMTQ5MjcgMCA4LjEyMjE2IDBIMTguMjg5QzE5LjI2MTggMCAyMC4xOTQ5IDAuMzg2NTIyIDIwLjg4MjkgMS4wNzQzMkwyMC45MzQ4IDEuMTI2NjJDMjEuNjIyOCAxLjgxNDQxIDIyLjAwOTMgMi43NDc0MSAyMi4wMDkzIDMuNzIwMzFWMTMuODg3MkMyMi4wMDkzIDE0Ljg2MDEgMjEuNjIyOCAxNS43OTMxIDIwLjkzNDggMTYuNDgwOEwyMC44ODI5IDE2LjUzM0MyMC4xOTQ5IDE3LjIyMDkgMTkuMjYxOCAxNy42MDc1IDE4LjI4OSAxNy42MDc1SDE3LjYwNzVMMTcuNjA3NSAxNS43NzM0WiIgZmlsbD0iI0RFREVERSIvPgo8L3N2Zz4K");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 55%;
+        }
+
+        & .mcc_qr_code {
+            margin-top: 14px;
+            height: 186px;
+            width: 186px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 50%;
+            align-self: center;
+            margin-right: 0;
+            margin-bottom: 43px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+
+            & img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+
+            &:before {
+                position: absolute;
+                content: "";
+                border: 2px solid #62318a;
+                height: 202px;
+                width: 202px;
+                border-radius: 50%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 2;
+            }
+        }
+
+        & .payment_buttons {
+            margin-bottom: 34px;
+
+            & a {
+                display: block;
+                width: 100%;
+            }
+
+            & .open_wallet_payment {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $mainFontFamily;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 1.2em;
+                text-align: center;
+                color: #ffffff;
+                background-color: #53a451;
+                border-radius: 4px;
+                width: 100%;
+                min-height: 38px;
+                background-image: none;
+                position: relative;
+                height: auto !important;
+
+                &::after {
+                    content: "Open In Wallet";
+                }
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    left: 6px;
+                    width: 48px;
+                    height: 30px;
+                    display: block;
+                    background: #faf9f9;
+                    border-radius: 4px;
+                    z-index: 3;
+                    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMiAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjU5NjcgMTEuMDg0MUMxMS44MDA1IDExLjA4MzkgMTEuOTk2IDExLjAwMjcgMTIuMTQgMTAuODU4M0wxOS4zNzkyIDMuNjE5MTJWNy4zNjE5MUMxOS4zNzkyIDcuNjM2NzQgMTkuNTI1OCA3Ljg5MDYyIDE5Ljc2MzggOC4wMjc5NUMyMC4wMDE3IDguMTY1MjggMjAuMjk0OSA4LjE2NTI4IDIwLjUzMjggOC4wMjc5NUMyMC43NzA3IDcuODkwNjIgMjAuOTE3MyA3LjYzNjczIDIwLjkxNzMgNy4zNjE5MVYxLjc2MzE5QzIwLjkxNzMgMS41NTkyNiAyMC44MzYzIDEuMzYzNTYgMjAuNjkyMSAxLjIxOTM2QzIwLjU0NzkgMS4wNzUxNyAyMC4zNTIyIDAuOTk0MTQxIDIwLjE0ODMgMC45OTQxNDFIMTQuNTQ5NkMxNC4yNzQ3IDAuOTk0MTQxIDE0LjAyMDkgMS4xNDA3NCAxMy44ODM1IDEuMzc4NjdDMTMuNzQ2MiAxLjYxNjYgMTMuNzQ2MiAxLjkwOTggMTMuODgzNSAyLjE0NzcyQzE0LjAyMDkgMi4zODU2NCAxNC4yNzQ4IDIuNTMyMjUgMTQuNTQ5NiAyLjUzMjI1SDE4LjI5MjRMMTEuMDAxNyA5Ljc3MTQ2QzEwLjg1NzcgOS45MTU2NiAxMC43NzY5IDEwLjExMTIgMTAuNzc2OSAxMC4zMTQ5QzEwLjc3NjkgMTAuNTE4OSAxMC44NTc3IDEwLjcxNDIgMTEuMDAxOSAxMC44NTg0QzExLjE0NTkgMTEuMDAyNiAxMS4zNDEzIDExLjA4MzggMTEuNTQ1MiAxMS4wODRMMTEuNTk2NyAxMS4wODQxWiIgZmlsbD0iIzUzQTQ1MSIvPgo8cGF0aCBkPSJNMjAuMjMwMiAxMS44MjI3QzIwLjAyNjIgMTEuODIyNyAxOS44MzA1IDExLjkwMzcgMTkuNjg2MyAxMi4wNDgxQzE5LjU0MjEgMTIuMTkyMyAxOS40NjExIDEyLjM4NzggMTkuNDYxMSAxMi41OTE3VjE4Ljk0OTRDMTkuNDYxMSAxOS4wODI2IDE5LjQwODIgMTkuMjEwNSAxOS4zMTQgMTkuMzA0N0MxOS4yMTk4IDE5LjM5OSAxOS4wOTE5IDE5LjQ1MTggMTguOTU4NyAxOS40NTE4SDMuMDQ0NTJDMi43NjY5NCAxOS40NTE4IDIuNTQyMDQgMTkuMjI2OSAyLjU0MjA0IDE4Ljk0OTRWMy4wMzUyMUMyLjU0MjA0IDIuNzU3NjMgMi43NjY5MiAyLjUzMjc0IDMuMDQ0NTIgMi41MzI3NEg5LjA2MzM1QzkuMzM4MTkgMi41MzI3NCA5LjU5MjA3IDIuMzg2MTQgOS43Mjk0IDIuMTQ4MjFDOS44NjY3MyAxLjkxMDI4IDkuODY2NzMgMS42MTcwOCA5LjcyOTQgMS4zNzkxNkM5LjU5MjA3IDEuMTQxMjMgOS4zMzgxOCAwLjk5NDYyOSA5LjA2MzM1IDAuOTk0NjI5SDMuMDQ0NTJDMi41MDA1MSAwLjk5NDYyOSAxLjk3OTAxIDEuMjEwNzUgMS41OTQzMSAxLjU5NTI4QzEuMjA5NzggMS45Nzk5OCAwLjk5MzY1MiAyLjUwMTQ5IDAuOTkzNjUyIDMuMDQ1NVYxOC45NDk1QzAuOTkzNjUyIDE5LjQ5MzUgMS4yMDk3OCAyMC4wMTUgMS41OTQzMSAyMC4zOTk3QzEuOTc5IDIwLjc4NDMgMi41MDA1MSAyMS4wMDA0IDMuMDQ0NTIgMjEuMDAwNEgxOC45NTg3QzE5LjUwMjcgMjEuMDAwNCAyMC4wMjQyIDIwLjc4NDMgMjAuNDA4OSAyMC4zOTk3QzIwLjc5MzQgMjAuMDE1IDIxLjAwOTUgMTkuNDkzNSAyMS4wMDk1IDE4Ljk0OTVWMTIuNTkxOUMyMS4wMDk1IDEyLjM4NjIgMjAuOTI3MSAxMi4xODkgMjAuNzgwNyAxMi4wNDQ0QzIwLjYzNDEgMTEuODk5OSAyMC40MzU4IDExLjgyMDEgMjAuMjMwMiAxMS44MjI4TDIwLjIzMDIgMTEuODIyN1oiIGZpbGw9IiM1M0E0NTEiLz4KPC9zdmc+Cg==");
+                    background-size: 20px auto;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        & .mcc_payment_timer {
+            order: 1;
+            margin-bottom: 0 !important;
+
+            & .timer {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+
+                & p {
+                    flex: 1 1 auto;
+                    margin-bottom: 0;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 20px;
+                    text-align: left;
+                    color: #dedede;
+
+                    & .timer_check_text {
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            & .hours_minutes {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                flex: 0 0 auto;
+                margin-right: 27px;
+                border: 1px solid #38058d;
+                border-radius: 4px;
+                min-width: 107px;
+                height: 38px;
+                padding: 10px 15px;
+                font-family: $mainFontFamily;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 1.2em;
+                color: #fff;
+                background-color: transparent;
+            }
+        }
+    }
+}
+// == and Choose a Coin ==
+
+#icon-check {
+    height: 202px !important;
+    width: 202px !important;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #50f227;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAxIiBoZWlnaHQ9Ijk5IiB2aWV3Qm94PSIwIDAgMTAxIDk5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMyA1OS41TDM3LjUgOTRMOTcuNSAyIiBzdHJva2U9IiM1MEYyMjciIHN0cm9rZS13aWR0aD0iNiIvPgo8L3N2Zz4K") !important;
+    background-position: center;
+    background-size: 94.5px 92px;
+    margin-bottom: 26px !important;
+    margin-top: 20px !important;
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        border: 1px solid #50f227;
+        width: 186px;
+        height: 186px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        border-radius: 50%;
+    }
+
+    & + p {
+        font-family: $mainFontFamily;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1em;
+        color: #dedede;
+        text-align: center;
+    }
+}
+
 // bloks
-    @import '../common/donate-card-slider/donate-card-slider.scss';
-    @import '../common/cards-carousel/cards-carousel.scss';
+@import "../common/donate-card-slider/donate-card-slider.scss";
+@import "../common/cards-carousel/cards-carousel.scss";
+@import "../common/donat-progress/donat-progress.scss";
+@import "../common/timer/timer.scss";
